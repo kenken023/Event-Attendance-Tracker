@@ -1,2 +1,2 @@
 # Event-Attendance-Tracker
-A android mobile application that scans a barcode or qrcode
+An android mobile application that scans a barcode or qrcode
