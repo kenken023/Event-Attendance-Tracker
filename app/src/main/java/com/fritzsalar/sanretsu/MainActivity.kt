@@ -1,4 +1,4 @@
-package com.fritzsalar.eventattancetracker
+package com.fritzsalar.sanretsu
 
 import android.Manifest
 import android.content.Intent
@@ -8,20 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
-import android.R.attr.data
-import android.R.attr.textViewStyle
 import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.zxing.ResultPoint
-import com.google.zxing.integration.android.IntentResult
 import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import android.media.RingtoneManager
-import android.media.Ringtone
-
-
+import com.google.gson.JsonParser
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
@@ -130,6 +126,18 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 0)
+        }
+    }
+
+    private fun isJsonValid(value: String): Boolean {
+        try {
+            JSONObject(value)
+        }
+        catch (e: Exception) {
+            return false
+        }
+        finally {
+            return true
         }
     }
 }

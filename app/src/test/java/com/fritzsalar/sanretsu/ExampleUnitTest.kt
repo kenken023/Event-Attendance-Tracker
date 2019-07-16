@@ -1,4 +1,4 @@
-package com.fritzsalar.eventattancetracker
+package com.fritzsalar.sanretsu
 
 import org.junit.Test
 
