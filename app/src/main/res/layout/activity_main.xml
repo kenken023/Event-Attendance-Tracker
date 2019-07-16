@@ -18,6 +18,48 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/message"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:text="Scan"/>
+
+    <!--<com.journeyapps.barcodescanner.DecoratedBarcodeView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/btn_scan"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--app:zxing_use_texture_view="false"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--app:zxing_preview_scaling_strategy="centerCrop"/>-->
+
+    <!--<com.journeyapps.barcodescanner.DecoratedBarcodeView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/btn_scan"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:id="@+id/dbv_barcode"-->
+            <!--android:layout_centerHorizontal="true"-->
+    <!--&gt;</com.journeyapps.barcodescanner.DecoratedBarcodeView>-->
+
+    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/dbv_barcode"
+            app:layout_constraintTop_toBottomOf="@+id/btn_scan"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="20dp"
+    ></com.journeyapps.barcodescanner.DecoratedBarcodeView>
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
