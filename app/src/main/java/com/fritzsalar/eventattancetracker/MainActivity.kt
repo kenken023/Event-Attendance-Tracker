@@ -26,6 +26,7 @@ import android.media.Ringtone
 
 class MainActivity : AppCompatActivity() {
     private var code: String = ""
+    private var isScanning: Boolean = false
 
 
     private lateinit var textMessage: TextView
@@ -56,9 +57,18 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         btn_scan.setOnClickListener {
-            val integrator = IntentIntegrator(this)
-            integrator.setPrompt("Scan a barcode")
-            integrator.initiateScan()
+//            val integrator = IntentIntegrator(this)
+//            integrator.setPrompt("Scan a barcode")
+//            integrator.initiateScan()
+            if (isScanning) {
+                dbv_barcode.barcodeView.pause()
+                btn_scan.text = "Start Scanning"
+            } else {
+                dbv_barcode.barcodeView.resume()
+                btn_scan.text = "Pause Scanning"
+            }
+
+            isScanning = !isScanning
         }
 
         requestPermission()
@@ -71,8 +81,6 @@ class MainActivity : AppCompatActivity() {
                     code = result.text
                     beepSound()
                 }
-
-//                Toast.makeText(null, "Scanned: " + result.text, Toast.LENGTH_LONG).show()
             }
 
             override fun possibleResultPoints(resultPoints: List<ResultPoint>) {
